@@ -3,7 +3,6 @@ package com.example.shrey.ecoclean_v11;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -29,50 +26,55 @@ import org.apache.http.message.BasicNameValuePair;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnterNewBrandActivity extends AppCompatActivity {
+public class EnterNewDealerActivity extends AppCompatActivity {
 
-    Button enter_brand;
-    EditText brand_name;
 
-    private GoogleApiClient client;
+    EditText client_name;
+    EditText client_brand;
+    EditText client_location;
+    Button submit;
+
     InputStream input = null;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enter_new_brand);
+        setContentView(R.layout.activity_enter_new_dealer);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        enter_brand = (Button) findViewById(R.id.newbrand_submit_button);
-        brand_name = (EditText) findViewById(R.id.newbrand_editText);
+        client_name = (EditText) findViewById(R.id.newdealer_name_editText);
+        client_brand = (EditText) findViewById(R.id.newdealer_brand_editText);
+        client_location = (EditText) findViewById(R.id.newdealer_location_editText);
 
-        enter_brand.setOnClickListener(new View.OnClickListener() {
+        submit = (Button) findViewById(R.id.newdealer_submit_button);
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String brand = brand_name.getText().toString();
-                addNewBrand(brand);
+                String name = client_name.getText().toString();
+                String brand  = client_brand.getText().toString();
+                String location = client_location.getText().toString();
+                addNewClient(name, brand, location);
             }
         });
 
     }
 
-    protected void addNewBrand(String brandname){
-
+    protected void addNewClient(String name, String brand, String location){
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
-        nameValuePairs.add(new BasicNameValuePair("brandname", brandname));
+        nameValuePairs.add(new BasicNameValuePair("clientname", name));
+        nameValuePairs.add(new BasicNameValuePair("clientbrand", brand));
+        nameValuePairs.add(new BasicNameValuePair("clientlocation", location));
         try {
 
             HttpClient httpClient = new DefaultHttpClient();
 
-            HttpPost httpPost = new HttpPost("http://192.168.26.1/ecoclean_info/newbrandsadd.php");
+            HttpPost httpPost = new HttpPost("http://192.168.26.1/ecoclean_info/newdealeradd.php");
 
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
@@ -85,7 +87,7 @@ public class EnterNewBrandActivity extends AppCompatActivity {
             String msg = "Data entered Successfully";
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
-            Intent i = new Intent(EnterNewBrandActivity.this, ChooseBrandActivity.class);
+            Intent i = new Intent(EnterNewDealerActivity.this, ChooseDealerActivity.class);
             startActivity(i);
 
         } catch (UnsupportedEncodingException e) {
@@ -97,9 +99,5 @@ public class EnterNewBrandActivity extends AppCompatActivity {
             Log.e("Log_tag", "IOException");
             e.printStackTrace();
         }
-
-
-
     }
-
 }

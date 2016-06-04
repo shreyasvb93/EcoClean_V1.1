@@ -47,6 +47,14 @@ public class ChooseDealerActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        
+        dealer_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(com.example.shrey.ecoclean_v11.ChooseDealerActivity.this, EnterNewDealerActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 

@@ -59,6 +59,10 @@
         <activity
             android:name=".EnterNewBrandActivity"
             android:label="@string/title_activity_enter_new_brand"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EnterNewDealerActivity"
+            android:label="@string/title_activity_enter_new_dealer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -22,4 +22,5 @@
     <string name="title_activity_services_console_page1">ServicesConsolePage1Activity</string>
     <string name="title_activity_sales_console_page2">SalesConsolePage2Activity</string>
     <string name="title_activity_enter_new_brand">EnterNewBrandActivity</string>
+    <string name="title_activity_enter_new_dealer">EnterNewDealerActivity</string>
 </resources>
