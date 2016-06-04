@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.shrey.ecoclean_v11.ChooseBrandActivity"
+    tools:showIn="@layout/activity_choose_brand">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="SELECT BRAND"
+        android:id="@+id/brand_header_textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_brand"
+        android:layout_marginTop="83dp"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/brand_header_textView"
+        android:gravity="center|center_horizontal"
+        android:clickable="true"
+        android:layout_alignRight="@+id/brand_header_textView"
+        android:layout_alignEnd="@+id/brand_header_textView"
+        android:layout_alignLeft="@+id/brand_header_textView"
+        android:layout_alignStart="@+id/brand_header_textView"
+        android:textAlignment="center"
+        android:focusable="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:id="@+id/brand_next_button"
+        android:textSize="20dp"
+        android:layout_marginTop="63dp"
+        android:layout_below="@+id/spinner_brand"
+        android:layout_alignRight="@+id/spinner_brand"
+        android:layout_alignEnd="@+id/spinner_brand"
+        android:layout_alignLeft="@+id/spinner_brand"
+        android:layout_alignStart="@+id/spinner_brand" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New"
+        android:id="@+id/brand_new_button"
+        android:layout_marginTop="54dp"
+        android:layout_below="@+id/brand_next_button"
+        android:layout_alignLeft="@+id/brand_next_button"
+        android:layout_alignStart="@+id/brand_next_button"
+        android:layout_alignRight="@+id/brand_next_button"
+        android:layout_alignEnd="@+id/brand_next_button" />
+</RelativeLayout>
