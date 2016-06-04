@@ -12,4 +12,37 @@
     tools:context="com.example.shrey.ecoclean_v11.EnterNewBrandActivity"
     tools:showIn="@layout/activity_enter_new_brand">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Enter New Brand"
+        android:id="@+id/newbrand_header_textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newbrand_editText"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/newbrand_header_textView"
+        android:gravity="center_horizontal"
+        android:ems="10"
+         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/newbrand_submit_button"
+        android:layout_below="@+id/newbrand_header_textView"
+        android:layout_marginTop="150dp"
+        />
+
+
+
 </RelativeLayout>
