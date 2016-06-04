@@ -2,6 +2,7 @@ package com.example.shrey.ecoclean_v11;
 
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +15,22 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EnterNewBrandActivity extends AppCompatActivity {
 
@@ -23,6 +38,9 @@ public class EnterNewBrandActivity extends AppCompatActivity {
     EditText brand_name;
 
     private GoogleApiClient client;
+    InputStream input = null;
+    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +63,7 @@ public class EnterNewBrandActivity extends AppCompatActivity {
     }
 
     protected void addNewBrand(String brandname){
-       /* try {
+        try {
 
             HttpClient httpClient = new DefaultHttpClient();
 
@@ -70,11 +88,8 @@ public class EnterNewBrandActivity extends AppCompatActivity {
             Log.e("Log_tag", "IOException");
             e.printStackTrace();
         }
-*/
-//        try {
-//            HttpClient httpClient = new DefaultHttpClient();
-//
-//        }
+
+
 
     }
 
