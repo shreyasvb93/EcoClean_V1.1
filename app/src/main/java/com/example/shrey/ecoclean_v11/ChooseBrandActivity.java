@@ -36,7 +36,7 @@ public class ChooseBrandActivity extends AppCompatActivity {
     //ImageButton back_brand;
     ArrayList<String> brands_list = new ArrayList<String>();
     InputStream is=null;
-
+    protected static String SELECTED_BRAND;
 
 
     @Override
@@ -50,6 +50,7 @@ public class ChooseBrandActivity extends AppCompatActivity {
         dropdown_brand = (Spinner) findViewById(R.id.spinner_brand);
         brand_next = (Button) findViewById(R.id.brand_next_button);
         brand_new = (Button) findViewById(R.id.brand_new_button);
+        //connectToDB();
         // back_brand = (ImageButton)findViewById(R.id.brand_back);
         //some changes
 
@@ -67,6 +68,78 @@ public class ChooseBrandActivity extends AppCompatActivity {
 //        brands_list.add("Skoda");
 //        brands_list.add("Volkswagen");
 
+        try {
+            String  url = "http://192.168.0.16/ecoclean_info/getBrandNames.php";
+
+            HttpEntity httpEntity = null;
+            DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
+            HttpGet httpGet = new HttpGet(url);
+
+
+            HttpResponse httpResponse = httpClient.execute(httpGet);
+
+            httpEntity = httpResponse.getEntity();
+            is = httpEntity.getContent();
+            // getAllBrands();
+
+            String result = null;
+            String line = "";
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
+                StringBuilder sb = new StringBuilder();
+                while((line = reader.readLine())!= null){
+                    sb.append(line + "\n");
+
+                    result = sb.toString();
+                    is.close();
+
+                    System.out.println("------------Here is my data ----------");
+                    System.out.println(result);
+
+
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try{
+                String[] arr;
+                String temp = "";
+                JSONArray jsonArray = new JSONArray(result);
+                int count = jsonArray.length();
+                for(int i=0; i < count; i++){
+                    JSONObject json_data = jsonArray.getJSONObject(i);
+                    temp += json_data.getString("brand_name") + ":";
+                }
+                arr = temp.split(":");
+              //  System.out.println(arr[0] + " " + arr[1] + " " + arr[2]);
+                //System.out.println("Print Something");
+
+                int i = arr.length;
+                i = i-1;
+                while (i >= 0){
+                    brands_list.add(arr[i]);
+                    i--;
+                }
+
+                for(String model : brands_list) {
+                    System.out.println(model.toString());
+                }
+
+                 dropdown_brand.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, brands_list));
+            }catch(Exception  e){
+                System.out.println("SomeShit Happens");
+            }
+
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+            System.out.println("Client PRotocol me gadbad!");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("I/O Lolita!");
+        }
 
 
 
@@ -74,10 +147,12 @@ public class ChooseBrandActivity extends AppCompatActivity {
         brand_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SELECTED_BRAND = (String) dropdown_brand.getSelectedItem().toString();
+                System.out.println(SELECTED_BRAND);
                 Intent i = new Intent(com.example.shrey.ecoclean_v11.ChooseBrandActivity.this, ChooseDealerActivity.class);
                 startActivity(i);
 
-                connectToDB();
+
 
 
             }
@@ -91,6 +166,7 @@ public class ChooseBrandActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(com.example.shrey.ecoclean_v11.ChooseBrandActivity.this, EnterNewBrandActivity.class);
                 startActivity(i);
+
             }
         });
 
@@ -99,7 +175,7 @@ public class ChooseBrandActivity extends AppCompatActivity {
 
 
 
-    protected void connectToDB(){
+  /*  protected void connectToDB(){
         try {
             String  url = "http://192.168.26.1/ecoclean_info/getBrandNames.php";
 
@@ -205,6 +281,6 @@ public class ChooseBrandActivity extends AppCompatActivity {
         }catch(Exception  e){
             System.out.println("SomeShit Happens");
         }
-    }
+    }*/
 
 }

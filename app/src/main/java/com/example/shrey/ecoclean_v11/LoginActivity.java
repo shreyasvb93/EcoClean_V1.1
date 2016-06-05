@@ -382,14 +382,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 /*extract the login tuple from tables*/
-                if(username.getText().toString().equals("admin") && password_login.getText().toString().equals("admin")){
+             //   if(username.getText().toString().equals("admin") && password_login.getText().toString().equals("admin")){
                     Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
                     Intent i=new Intent(com.example.shrey.ecoclean_v11.LoginActivity.this, com.example.shrey.ecoclean_v11.ChooseBrandActivity.class);
                     startActivity(i);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
-                }
+              //  }
+             //   else{
+               //     Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
+               // }
             }
         });
 
