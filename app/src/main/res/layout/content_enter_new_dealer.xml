@@ -24,11 +24,18 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+    <!--Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_salutation"
+        android:layout_toLeftOf="@+id/newdealer_name_editText"
+        android:layout_marginTop="50dp"></Spinner-->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/newdealer_name_editText"
         android:layout_marginTop="50dp"
+        android:hint="Last, First Name"
         android:layout_below="@+id/newdealer_header_textView"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true"
@@ -38,25 +45,15 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/newdealer_brand_editText"
-        android:layout_marginTop="20dp"
+        android:id="@+id/newdealer_location_editText"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/newdealer_name_editText"
+        android:background="#FFFF"
         android:gravity="center_horizontal"
+        android:hint="Address"
+        android:lines="5"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/newdealer_location_editText"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/newdealer_brand_editText"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:background="#FFFFFF"
-        android:lines="5"
-        android:ems="15"
         />
 
     <Button

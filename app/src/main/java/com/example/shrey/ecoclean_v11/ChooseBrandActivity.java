@@ -35,8 +35,8 @@ public class ChooseBrandActivity extends AppCompatActivity {
     Button brand_next, brand_new;
     //ImageButton back_brand;
     ArrayList<String> brands_list = new ArrayList<String>();
-    InputStream is=null;
-    protected static String SELECTED_BRAND;
+    InputStream is = null;
+    protected static String SELECTED_BRAND = null;
 
 
     @Override

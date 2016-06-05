@@ -33,7 +33,7 @@ public class EnterNewDealerActivity extends AppCompatActivity {
 
 
     EditText client_name;
-    EditText client_brand;
+  //  EditText client_brand;
     EditText client_location;
     Button submit;
 
@@ -49,7 +49,7 @@ public class EnterNewDealerActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         client_name = (EditText) findViewById(R.id.newdealer_name_editText);
-        client_brand = (EditText) findViewById(R.id.newdealer_brand_editText);
+      //  client_brand = (EditText) findViewById(R.id.newdealer_brand_editText);
         client_location = (EditText) findViewById(R.id.newdealer_location_editText);
 
         submit = (Button) findViewById(R.id.newdealer_submit_button);
@@ -57,24 +57,29 @@ public class EnterNewDealerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = client_name.getText().toString();
-                String brand  = client_brand.getText().toString();
                 String location = client_location.getText().toString();
-                addNewClient(name, brand, location);
+                if (ChooseBrandActivity.SELECTED_BRAND == null) {
+                    Toast.makeText(getApplicationContext(), "No was Selected", Toast.LENGTH_LONG).show();
+                }
+                else if (!name.equals("") || !location.equals("")) {
+                    addNewClient(name, location);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Something Missing", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
     }
 
-    protected void addNewClient(String name, String brand, String location){
+    protected void addNewClient(String name, String location){
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
         nameValuePairs.add(new BasicNameValuePair("clientname", name));
-        nameValuePairs.add(new BasicNameValuePair("clientbrand", brand));
         nameValuePairs.add(new BasicNameValuePair("clientlocation", location));
         try {
 
             HttpClient httpClient = new DefaultHttpClient();
 
-            HttpPost httpPost = new HttpPost("http://192.168.26.1/ecoclean_info/newdealeradd.php");
+            HttpPost httpPost = new HttpPost("http://192.168.26.1/ecoclean_info/newdealeradd.php?key=" + ChooseBrandActivity.SELECTED_BRAND);
 
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
