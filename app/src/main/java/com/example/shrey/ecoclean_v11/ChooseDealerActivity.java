@@ -26,13 +26,27 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ChooseDealerActivity extends AppCompatActivity {
     Button dealer_next, dealer_new;
     Spinner dropdown_dealers;
 
+    protected static String SELECTED_DEALER = null;
+
     InputStream is = null;
     ArrayList<String> dealer_list = new ArrayList<String>();
+
+    protected class Client{
+        String id;
+        String name;
+        String location;
+        Client (String id, String name, String location){
+            this.id = id;
+            this.name = name;
+            this.location = location;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +60,7 @@ public class ChooseDealerActivity extends AppCompatActivity {
         dealer_next = (Button) findViewById(R.id.dealer_next_btn);
         dealer_new = (Button) findViewById(R.id.dealer_new_btn);
 
+        final ArrayList<Client> clients = new ArrayList<>();
 //        dealer_list.add("Andheri Chakala");
 //        dealer_list.add("Andheri Marol");
 //        dealer_list.add("SantaCruz");
@@ -53,7 +68,7 @@ public class ChooseDealerActivity extends AppCompatActivity {
 //        dealer_list.add("Kandivali");
 
         try {
-            String  url = "http://192.168.0.16/ecoclean_info/getDealers.php?key=" + ChooseBrandActivity.SELECTED_BRAND;
+            String  url = "http://192.168.26.1/ecoclean_info/getDealers.php?key=" + ChooseBrandActivity.SELECTED_BRAND;
 
             HttpEntity httpEntity = null;
             DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
@@ -93,13 +108,14 @@ public class ChooseDealerActivity extends AppCompatActivity {
                 String temp = "";
                 JSONArray jsonArray = new JSONArray(result);
                 int count = jsonArray.length();
+               // System.out.println(count);
                 for(int i=0; i < count; i++){
                     JSONObject json_data = jsonArray.getJSONObject(i);
-                    temp += json_data.getString("client_name") + " | " + json_data.getString("location") + ":";
+                    clients.add(new Client(json_data.getString("client_id"), json_data.getString("client_name"), json_data.getString("location")));
+                    temp += json_data.getString("client_name") + ": " + json_data.getString("location") + ";";
+                    System.out.println(temp);
                 }
-                arr = temp.split(":");
-                //  System.out.println(arr[0] + " " + arr[1] + " " + arr[2]);
-                //System.out.println("Print Something");
+                arr = temp.split(";");
 
                 int i = arr.length;
                 i = i-1;
@@ -129,11 +145,21 @@ public class ChooseDealerActivity extends AppCompatActivity {
         dealer_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //SELECTED_DEALER = dropdown_dealers.getSelectedItem().toString();
+                String selected_name = dropdown_dealers.getSelectedItem().toString();
+                for (Client c : clients){
+                  //  System.out.println(c.id + " " + c.name + c.location);
+                    if (selected_name.equals(c.name + ": " + c.location)){
+                        SELECTED_DEALER = c.id;
+                        break;
+                    }
+                }
+                //System.out.println(SELECTED_DEALER);
                 Intent i = new Intent(com.example.shrey.ecoclean_v11.ChooseDealerActivity.this, ChooseSelectionActivity.class);
                 startActivity(i);
             }
         });
-        
+
         dealer_new.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,5 +169,6 @@ public class ChooseDealerActivity extends AppCompatActivity {
         });
 
     }
+
 
 }

@@ -69,7 +69,7 @@ public class ChooseBrandActivity extends AppCompatActivity {
 //        brands_list.add("Volkswagen");
 
         try {
-            String  url = "http://192.168.0.16/ecoclean_info/getBrandNames.php";
+            String  url = "http://192.168.26.1/ecoclean_info/getBrandNames.php";
 
             HttpEntity httpEntity = null;
             DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
