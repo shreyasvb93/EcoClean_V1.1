@@ -1,5 +1,6 @@
 package com.example.shrey.ecoclean_v11;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -69,8 +70,13 @@ public class SalesConsolePage2Activity extends AppCompatActivity {
 
                // System.out.println(Exec_ID);
                 addNewSales(ChooseDealerActivity.SELECTED_DEALER, SalesConsolePage1Activity.VEHICLE_NUMBER, 1, Integer.parseInt(invoice));
-                System.out.println("Dealer: " + ChooseDealerActivity.SELECTED_DEALER + "VHNM: " + SalesConsolePage1Activity.VEHICLE_NUMBER);
-                System.out.println("Invoice Number" + Integer.parseInt(invoice));
+                Intent intent = new Intent(com.example.shrey.ecoclean_v11.SalesConsolePage2Activity.this, com.example.shrey.ecoclean_v11.FinalConfirmationActivity.class);
+                startActivity(intent);
+
+//                System.out.println("Dealer: " + ChooseDealerActivity.SELECTED_DEALER + "VHNM: " + SalesConsolePage1Activity.VEHICLE_NUMBER);
+//                System.out.println("Invoice Number" + Integer.parseInt(invoice));
+
+
             }
         });
 

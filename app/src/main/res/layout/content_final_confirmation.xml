@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.shrey.ecoclean_v11.FinalConfirmationActivity"
+    tools:showIn="@layout/activity_final_confirmation">
+
+
+    <ImageView
+        android:id="@+id/DecisionImage"
+        android:src="@drawable/sparks"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/finaltext_heading"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:gravity="center_horizontal"
+        android:text="The Sale Has been Recorded!"
+        android:layout_below="@+id/DecisionImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="90dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:text="Transaction details have been emailed to you and your executive."
+        android:layout_below="@+id/finaltext_heading"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView10" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/FinalBack"
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/textView10"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
