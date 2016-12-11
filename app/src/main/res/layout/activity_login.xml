@@ -108,12 +108,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:minHeight="50dp"
+            android:maxLines="1"
             android:background="#b1ffffff"
             android:ems="10"
             android:gravity="center"
             android:hint="username"
             android:inputType="text"
-            android:imeOptions="actionDone"
+            android:imeOptions="actionNext"
             android:textColorHint="#010000"
             android:textSize="25sp" />
 
@@ -127,6 +128,8 @@
             android:minHeight="50dp"
             android:gravity="center"
             android:hint="password"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:textColorHint="#010000"
             android:textSize="25sp" />
