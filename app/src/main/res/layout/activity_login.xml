@@ -107,7 +107,7 @@
         android:autoText="false"
         android:gravity="center_horizontal"
         android:clickable="false"
-        android:paddingBottom="3dp"
+
         android:layout_above="@+id/editText_password"
         android:layout_alignRight="@+id/editText_password"
         android:layout_alignEnd="@+id/editText_password"
@@ -115,7 +115,8 @@
         android:layout_marginBottom="42dp"
         android:layout_alignLeft="@+id/login_headtext"
         android:layout_alignStart="@+id/login_headtext"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.07" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -142,7 +143,7 @@
         android:textSize="25dp"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:background="#c9fddede"
+        android:background="@drawable/mybutton"
         android:layout_below="@+id/editText_password"
         android:layout_alignLeft="@+id/editText_password"
         android:layout_alignStart="@+id/editText_password"
