@@ -49,28 +49,28 @@ public class ChooseBrandActivity extends AppCompatActivity {
 
         dropdown_brand = (Spinner) findViewById(R.id.spinner_brand);
         brand_next = (Button) findViewById(R.id.brand_next_button);
-        brand_new = (Button) findViewById(R.id.brand_new_button);
+      brand_new = (Button) findViewById(R.id.brand_new_button);
         //connectToDB();
         // back_brand = (ImageButton)findViewById(R.id.brand_back);
         //some changes
 
-//        brands_list.add("Audi");
-//        brands_list.add("BMW");
-//        brands_list.add("Hero MotoCorp");
-//        brands_list.add("Honda");
-//        brands_list.add("Hyundai");
-//        brands_list.add("Mahendra");
-//        brands_list.add("Maruti Suzuki");
-//        brands_list.add("Mercedes");
-//        brands_list.add("Nissan");
-//        brands_list.add("Tata");
-//        brands_list.add("Toyota");
-//        brands_list.add("Skoda");
-//        brands_list.add("Volkswagen");
+        brands_list.add("Audi");
+        brands_list.add("BMW");
+        brands_list.add("Hero MotoCorp");
+        brands_list.add("Honda");
+        brands_list.add("Hyundai");
+        brands_list.add("Mahendra");
+        brands_list.add("Maruti Suzuki");
+        brands_list.add("Mercedes");
+        brands_list.add("Nissan");
+        brands_list.add("Tata");
+        brands_list.add("Toyota");
+        brands_list.add("Skoda");
+        brands_list.add("Volkswagen");
 
-        try {
-            String  url = "http://192.168.26.1/ecoclean_info/getBrandNames.php";
-
+ /*       try {
+            //String  url = "http://192.168.26.1/ecoclean_info/getBrandNames.php";
+            String  url = "http://10.24.99.162/ecoclean_info/getBrandNames.php";
             HttpEntity httpEntity = null;
             DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
             HttpGet httpGet = new HttpGet(url);
@@ -139,8 +139,9 @@ public class ChooseBrandActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("I/O Lolita!");
-        }
+        }*/
 
+        dropdown_brand.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, brands_list));
 
 
         //Next Page Button
@@ -148,7 +149,7 @@ public class ChooseBrandActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SELECTED_BRAND = (String) dropdown_brand.getSelectedItem().toString();
-                System.out.println(SELECTED_BRAND);
+           //     System.out.println(SELECTED_BRAND);
                 Intent i = new Intent(com.example.shrey.ecoclean_v11.ChooseBrandActivity.this, ChooseDealerActivity.class);
                 startActivity(i);
 

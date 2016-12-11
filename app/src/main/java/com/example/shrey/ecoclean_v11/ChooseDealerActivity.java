@@ -61,13 +61,26 @@ public class ChooseDealerActivity extends AppCompatActivity {
         dealer_new = (Button) findViewById(R.id.dealer_new_btn);
 
         final ArrayList<Client> clients = new ArrayList<>();
-//        dealer_list.add("Andheri Chakala");
-//        dealer_list.add("Andheri Marol");
-//        dealer_list.add("SantaCruz");
-//        dealer_list.add("Malad");
-//        dealer_list.add("Kandivali");
+        dealer_list.add("Ajax");
+        dealer_list.add("Brampton");
+        dealer_list.add("Don Valley");
+        dealer_list.add("Downtown");
+        dealer_list.add("Etobicoke");
+        dealer_list.add("Leaside");
+        dealer_list.add("Markham");
+        dealer_list.add("Milton");
+        dealer_list.add("Missisauga");
+        dealer_list.add("Pickering");
+        dealer_list.add("Rexdale");
+        dealer_list.add("Richmond  Hill");
+        dealer_list.add("Scarborough");
+        dealer_list.add("Thornhill");
+        dealer_list.add("Vaughan");
+        dealer_list.add("Whitby");
 
-        try {
+
+
+     /*   try {
             String  url = "http://192.168.26.1/ecoclean_info/getDealers.php?key=" + ChooseBrandActivity.SELECTED_BRAND;
 
             HttpEntity httpEntity = null;
@@ -139,8 +152,8 @@ public class ChooseDealerActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("I/O Lolita!");
-        }
-
+        }*/
+        dropdown_dealers.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, dealer_list));
         //Next Page Button
         dealer_next.setOnClickListener(new View.OnClickListener() {
             @Override

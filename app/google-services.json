@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "608240859377",
+    "firebase_url": "https://ecoclean1-6f873.firebaseio.com",
+    "project_id": "ecoclean1-6f873",
+    "storage_bucket": "ecoclean1-6f873.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608240859377:android:f3c1f1408e880b16",
+        "android_client_info": {
+          "package_name": "com.example.shrey.ecoclean_v11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608240859377-mpc59qrd31v6r6rs79gks8nks6d74qca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6QkIxJkSWg4dMI4f_Z8FuoT8Wc5I7_tQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

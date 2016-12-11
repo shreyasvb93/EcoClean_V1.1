@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.shrey.ecoclean_v11.ChooseBrandActivity"
-    tools:showIn="@layout/activity_choose_brand">
+    tools:showIn="@layout/activity_choose_brand"
+    android:background="@drawable/clean_car">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,36 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         android:textSize="30dp"
-        android:textStyle="bold" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner_brand"
-        android:layout_marginTop="83dp"
-        android:spinnerMode="dropdown"
-        android:layout_below="@+id/brand_header_textView"
-        android:gravity="center|center_horizontal"
-        android:clickable="true"
-        android:layout_alignRight="@+id/brand_header_textView"
-        android:layout_alignEnd="@+id/brand_header_textView"
-        android:layout_alignLeft="@+id/brand_header_textView"
-        android:layout_alignStart="@+id/brand_header_textView"
-        android:textAlignment="center"
-        android:focusable="false" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEXT"
-        android:id="@+id/brand_next_button"
-        android:textSize="20dp"
-        android:layout_marginTop="63dp"
-        android:layout_below="@+id/spinner_brand"
-        android:layout_alignRight="@+id/spinner_brand"
-        android:layout_alignEnd="@+id/spinner_brand"
-        android:layout_alignLeft="@+id/spinner_brand"
-        android:layout_alignStart="@+id/spinner_brand" />
+        android:textColor="@android:color/background_dark" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -63,5 +35,34 @@
         android:layout_alignLeft="@+id/brand_next_button"
         android:layout_alignStart="@+id/brand_next_button"
         android:layout_alignRight="@+id/brand_next_button"
-        android:layout_alignEnd="@+id/brand_next_button" />
+        android:layout_alignEnd="@+id/brand_next_button"
+        android:background="@color/common_signin_btn_dark_text_disabled" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_brand"
+        android:layout_marginTop="86dp"
+        android:spinnerMode="dropdown"
+        android:gravity="center|center_horizontal"
+        android:clickable="true"
+        android:textAlignment="center"
+        android:focusable="false"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:layout_below="@+id/brand_header_textView"
+        android:layout_alignLeft="@+id/brand_header_textView"
+        android:layout_alignStart="@+id/brand_header_textView"
+        android:layout_alignRight="@+id/brand_header_textView"
+        android:layout_alignEnd="@+id/brand_header_textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:id="@+id/brand_next_button"
+        android:layout_marginTop="60dp"
+        android:background="@android:drawable/alert_dark_frame"
+        android:textColor="@color/common_signin_btn_dark_text_focused"
+        android:layout_below="@+id/spinner_brand"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

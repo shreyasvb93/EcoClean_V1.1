@@ -68,6 +68,10 @@
             android:name=".FinalConfirmationActivity"
             android:label="@string/title_activity_final_confirmation"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ServicesConsolePage2Activity"
+            android:label="@string/title_activity_services_console_page2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.shrey.ecoclean_v11.ChooseDealerActivity"
-    tools:showIn="@layout/activity_choose_dealer">
+    tools:showIn="@layout/activity_choose_dealer"
+    android:background="@drawable/ginni">
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,7 +35,8 @@
         android:layout_alignStart="@+id/enter_dealer_textView"
         android:layout_alignRight="@+id/enter_dealer_textView"
         android:layout_alignEnd="@+id/enter_dealer_textView"
-        android:spinnerMode="dropdown" />
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:clipChildren="false" />
 
     <Button
         android:layout_width="wrap_content"
@@ -42,13 +44,15 @@
         android:text="NEXT"
         android:id="@+id/dealer_next_btn"
         android:textSize="30dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/spinner_dealer"
         android:layout_centerHorizontal="true"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="10dp"
+        android:background="@android:color/background_dark"
+        android:textColor="@color/common_signin_btn_dark_text_default" />
 
     <Button
         android:layout_width="wrap_content"
