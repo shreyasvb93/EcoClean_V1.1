@@ -22,6 +22,7 @@
         android:textSize="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff"
         android:layout_marginTop="45dp"
         android:textStyle="bold" />
 
@@ -29,7 +30,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner_dealer"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="65dp"
+        android:gravity="center|center_horizontal"
+        android:clickable="true"
+        android:textAlignment="center"
+        android:spinnerMode="dropdown"
         android:layout_below="@+id/enter_dealer_textView"
         android:layout_alignLeft="@+id/enter_dealer_textView"
         android:layout_alignStart="@+id/enter_dealer_textView"
@@ -51,7 +56,7 @@
         android:paddingRight="40dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:background="@android:color/background_dark"
+        android:background="@drawable/mybutton"
         android:textColor="@color/common_signin_btn_dark_text_default" />
 
     <Button
@@ -60,7 +65,9 @@
         android:text="New Dealer"
         android:id="@+id/dealer_new_btn"
         android:layout_marginTop="45dp"
-        android:textSize="20dp"
+        android:textSize="30dp"
+        android:textColor="@color/common_signin_btn_dark_text_default"
+        android:background="@drawable/mybutton"
         android:layout_below="@+id/dealer_next_btn"
         android:layout_centerHorizontal="true" />
 
